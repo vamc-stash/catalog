@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>catalog</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="jQuery-v3.5.1.js"></script>
+</head>
+<body>
+	<div id = "outer-box">
+		<div id = "title">
+			<p>CATALOG</p>
+		</div>
+		<div id = "add-task">
+			<form class="todo-form">
+				<span>
+					<input id = "task" type="text" name="my-task" placeholder="m y   t a s k  . . .">
+					<button type="submit"><i class="material-icons">done</i></button>
+				</span>
+			</form>
+		</div>
+		<div id= "options">
+			<div id = "clear-tasks" class = "tooltip">
+				<button class = "del-btn"><i class="material-icons">delete</i></button>
+				<p class = "hint">Delete Entire Catalog</p>
+			</div>
+			<div id = "clear-completed-tasks" class = "tooltip">
+				<button class = "done-btn"><i class="material-icons">delete check</i></button>
+				<p class = "hint">Delete Completed Tasks</p>
+			</div>
+			<div id = "filters" class = "tooltip">
+				<button class = "apply-filter"><i class="material-icons">filter_list</i></button>
+				<div class = "hint" id = "sort">
+					<button id = "sort-old">oldest</button>
+					<button id = "sort-new">newest</button>
+				</div>
+			</div>
+		</div>
+		<div id = "show-tasks"></div>
+	</div>
+
+	<script  src="popup.js"></script>
+</body>
+</html>

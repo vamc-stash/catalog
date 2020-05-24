@@ -1,0 +1,29 @@
+{
+  "name": "catalog",
+  "version": "1.0.0",
+  "description": "simple chrome extension for task management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vamc-stash/catalog.git"
+  },
+  "keywords": [
+    "to-do-list",
+    "checklist",
+    "task-management",
+    "productivity"
+  ],
+  "author": "vamsi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vamc-stash/catalog/issues"
+  },
+  "homepage": "https://github.com/vamc-stash/catalog#readme",
+  "dependencies": {
+    "@types/chrome": "0.0.114",
+    "types": "^0.1.1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+	"name": "catalog",
+	"version": "1.0.0",
+	"description": "Minimalistic extension for task management",
+	"manifest_version": 2,
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	/*"content_scripts":[
+		{
+
+		}
+	],*/
+	"permissions": ["storage"],
+	"icons": {
+		"48": "logo.png"
+	},
+	"browser_action": {
+		"default_title": "catalog",
+		"default_popup": "popup.html"
+	}
+}
