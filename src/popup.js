@@ -161,8 +161,7 @@ $(document).ready(function(){
 		};
 
 		let todolist = $("#show-tasks");
-		let todoRow = createRow(newTask);
-		todolist.append(todoRow);
+		let todoRow = createRow(newTask);			
 
 		chrome.storage.sync.get(["catalog"],(result) => {
 			let todos = result.catalog;
@@ -171,7 +170,16 @@ $(document).ready(function(){
 			}
 			console.log("newTask id",newTask.id);
 			console.log("new task",newTask.task);
-			todos.push(newTask);
+			if(todos.length > 1){
+				if(todos[0].timestamp > todos[1].timestamp){
+					todolist.prepend(todoRow);
+					todos.unshift(newTask);
+				}
+			}
+			else{
+				todolist.append(todoRow);
+				todos.push(newTask);
+			}
 			chrome.storage.sync.set({"catalog":todos}, () => {
 				console.log(todos.length);
 			});
