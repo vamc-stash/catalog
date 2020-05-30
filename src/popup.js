@@ -163,18 +163,19 @@ $(document).ready(function(){
 		let todolist = $("#show-tasks");
 		let todoRow = createRow(newTask);			
 
-		chrome.storage.sync.get(["catalog"],(result) => {
+		chrome.storage.sync.get(["catalog","sortOld"],(result) => {
 			let todos = result.catalog;
 			if(todos === undefined){
 				todos = []
 			}
+
 			console.log("newTask id",newTask.id);
 			console.log("new task",newTask.task);
-			if(todos.length > 1){
-				if(todos[0].timestamp > todos[1].timestamp){
+			console.log("sort-old",result.sortOld);
+
+			if(result.sortOld == false){
 					todolist.prepend(todoRow);
 					todos.unshift(newTask);
-				}
 			}
 			else{
 				todolist.append(todoRow);
@@ -247,7 +248,7 @@ $(document).ready(function(){
 				todolist.append(todoRow);
 			});
 
-			chrome.storage.sync.set({"catalog":todos}, () =>{
+			chrome.storage.sync.set({"catalog":todos,"sortOld":true}, () =>{
 				console.log("sorted oldest first");
 			});
 		})
@@ -271,7 +272,7 @@ $(document).ready(function(){
 				todolist.append(todoRow);
 			});
 
-			chrome.storage.sync.set({"catalog":todos}, () =>{
+			chrome.storage.sync.set({"catalog":todos,"sortOld":false}, () =>{
 				console.log("sorted newest first");
 			}); 
 		})
